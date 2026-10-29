@@ -394,6 +394,10 @@ spatPlot2D(visium_kidney,
            other_cell_color = "grey")
 ```
 
+## Resultados 
+
+Posterior a explorar los datos y comprobar que eran congruentes con la descripción de los datos en 10x genomics, se realizó el mapa 2D de los spots usando las coordenada espaciales, esta visualización está disponible en el repositorio de github de la forma Figures/SpotPlot2D.pdf. Los puntos grises corrresponden a spots fuera del tejido mientras que los azules indican que están dentro. Se ignora la imagen histologica de fondo dado que se trabajó en cluster. Posterior a visualizar y corroborar se filtraron los spots fuera el tejido, pasando de 4,992 a 1,438 spots dentro del tejido
+
 
 
 # Discusión
