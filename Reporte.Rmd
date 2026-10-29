@@ -418,7 +418,7 @@ Al final se escogió la combinación 1, 50 y 1,000. Esto se discutirá mas tarde
 
 Subsecuentemente, se reanalizaron las métricas y se volvió a calcular la visualización espacial de los features. Este gráfico se puede encontrar de la forma: Figures/SpotGeneVisNorm.pdf
 
-Luego de normalizar, se identifican mediante tres métodos estadísticos los genes más variables a lo largo del spot, quedando con los genes más informativos y guardandolos dentro del archivo para contrastar el número de genes informativos. Los resultados son 
+Luego de normalizar, se identifican mediante tres métodos estadísticos los genes más variables a lo largo del spot, quedando con los genes más informativos y guardandolos dentro del archivo para contrastar el número de genes informativos. Los resultados son:
 
 ```
  cov_loess var_p_resid  cov_groups 
@@ -428,7 +428,11 @@ El método elegido es cov_loess, cuya elección se discutira posteriormente.
 
 Subsecuentemente, se redujeron las dimensiones usando:
 
-- PCA: Cuyas proyecciones se encuentran en
+- PCA: Cuyas proyecciones se encuentran en Figures/PCA_proy.pdf
+
+- UMAP: Cuya reducción de dimensiones se encuentra en Figures/UMAP_proy.pdf
+
+- tSNE: Cuya imagen se encuentra en Figures/tSNE_proy.pdf
 
 # Discusión
 
