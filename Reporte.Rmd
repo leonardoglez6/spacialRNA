@@ -5,5 +5,29 @@ date: "29/10/2026"
 output: html_notebook
 ---
 
+# Dataset Mouse Kidney Section (Coronal)
+
+El dataset pertenece a un corte coronal de riñón de una muestra fesca que fue conservada en congelación de un ratón macho de edad mayor a 8 semanas y de la cepa de C57BL/6, la cual es una de las cepas más utilizadas en investigación al tener un perfil genético muy bien caracterizado [1].
+
+El dataset contiene 1,438 spots con una mediana de genes por spot de 6,516 y una mediana de UMIs por spot de 38,308.
+
+Los datos son un poco antiguos ya que fueron publicados el 23 de julio del 2020 y se usó el producto de Spatial Gene Expression v1, es por ello que se utilizó el pipeline de vissium y no vissium HD.
+
+
+# Código y Resultados
+
+
+
+# Discusión
+
+
+
+# Conclusiones
+
+
+
+# Referencias
+
+1. https://www.criver.com/products-services/find-model/c57bl6-mouse?region=3616
 
 
