@@ -446,7 +446,34 @@ Adicionalmente, podemos representar los clusters en su forma espacial. Este arch
 
 # Discusión
 
+## Naturaleza del dataset
+El dataset corresponde a un solo corte de ~10 µm de grosor de riñón de ratón, procesado con Visium v1. Según los factores de escala de la imagen, el tejido mide aproximadamente 3.2 × 3.5 mm. Esto es menor al tamaño esperado para un corte coronal por el plano medio de un riñón de ratón adulto. Además, una comparación visual del tejido con otros no coincide con un corte de plano medio, por lo que probablemente la sección no atraviesa el centro del órgano. Aun así, el corte contiene corteza y médula, lo que permite estudiar la organización espacial del tejido en ese plano, aunque no representa al órgano completo. El corte coincide más con el de uno transversal, por lo que dudamos de la documentación de 10x. 
+Cada spot de Visium mide 55 µm y captura el ARN de varias células (aproximadamente 1 a 10), así que el análisis describe regiones del tejido y no células individuales.
 
+## Calidad de los datos
+Los datos tienen buena calidad de captura. De los 4,992 spots del arreglo, 1,438 se encontraron sobre el tejido, con una mediana de 6,516 genes y 38,308 UMIs por spot. Casi todos los spots detectan entre 4,000 y 8,500 genes, y solo unos pocos quedan cerca de cero. Entre ellos hay dos spots aislados, lejos del tejido, que probablemente se anotaron como "in_tissue" por error al detectar el tejido. Por eso un filtro conservador (expresión ≥ 1, gen presente en ≥ 50 spots y ≥ 1,000 genes por spot) fue suficiente para eliminarlos. La matriz final quedó de 13,504 genes × 1,431 spots. Umbrales más estrictos habrían eliminado hasta ~380 spots sin una justificación técnica clara.
+
+La distribución de genes por spot tiene dos picos, cerca de 5,000 y de 7,500 genes. Al graficar este valor sobre el tejido, el número de genes detectados es mayor en la corteza interna y en la transición hacia la médula, y menor en la periferia. Esto sugiere que parte de la variación en complejidad transcripcional refleja diferencias biológicas entre regiones del riñón y no solo variación técnica. Por esta razón no conviene filtrar spots solo por tener menos genes, porque podríamos eliminar regiones anatómicas completas. 
+
+## Selección de genes y reducción de dimensiones
+Los tres métodos de selección de genes altamente variables dieron resultados muy distintos: 2,070 genes con ⁠`cov_loess`, 675 con ⁠`cov_groups` ⁠ y solo 10 con ⁠`var_p_resid`. El bajo número de este último probablemente se debe a que los residuales de Pearson están pensados para conteos crudos y aquí se aplicaron sobre datos normalizados. Elegimos ⁠ cov_loess ⁠ porque identifica genes con una variabilidad mayor a la esperada en todo el rango de expresión.
+
+En el scree plot, la varianza explicada se estabiliza entre PC6 y PC8, y las primeras 10 componentes explican ~53 % de la varianza, por lo que las usamos para UMAP, tSNE y la red de vecinos. Las dos primeras componentes ya muestran la estructura principal del tejido.
+
+## Organización espacial de los clusters
+El clustering de Leiden (k = 15 vecinos, resolución 0.4) identificó 11 clusters. El clustering se hizo solo con la expresión génica, sin usar la posición de los spots. Aun así, al proyectar los clusters sobre el tejido se forman estructuras compatibles con la organización en capas del riñón, que va de la corteza en la periferia a la médula en el centro. Con base en su posición, proponemos lo siguiente:
+
+-  ⁠*Cluster 5:* ocupa un núcleo compacto en el centro del corte, la misma zona donde la H&E muestra un patrón radial de túbulos que convergen hacia el centro. Es consistente con la *médula interna*, y es el cluster más diferenciado en todas las proyecciones (PCA, UMAP y tSNE).
+-  ⁠*Cluster 3:* forma un anillo alrededor del cluster 5.
+-⁠  ⁠*Cluster 6:* está entre ambos, tanto en el tejido como en el UMAP, donde forma un puente continuo 5 → 6 → 3. Esto indica que la transición dentro de la médula es gradual, sin un límite marcado.
+-  ⁠*Clusters 1, 2, 4, 7, 8, 9 y 11:* ocupan la periferia, que en la H&E tiene una textura granular con estructuras compatibles con glomérulos, característica de la *corteza*. Estos clusters están entremezclados en el tejido y forman un continuo en el UMAP. Por el tamaño de los spots, interpretamos que no representan regiones distintas, sino mezclas con diferentes proporciones de tipos celulares de la corteza. También es posible que la resolución usada divida de más esta región.
+-  ⁠*Cluster 10:* se ubica sobre todo en el borde inferior del corte, donde la H&E muestra tejido irregular y conectivo, y aparece aislado en UMAP y tSNE. 
+
+Además, los huecos sin spots coinciden con espacios vacíos en la H&E, probablemente vasos sanguíneos de la unión entre la corteza y el tejido medular. UMAP y tSNE dieron topologías equivalentes, lo que respalda que esta estructura no depende del método de proyección.
+
+  ## Limitaciones
+
+ La identidad de las regiones se propuso a partir de la posición de los clusters y su correspondencia con la histología, sin genes marcadores. El siguiente paso sería identificar los genes diferenciales de cada cluster y comparar con marcadores conocidos del riñón.
 
 # Conclusiones
 
