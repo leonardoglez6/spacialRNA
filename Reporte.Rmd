@@ -434,6 +434,16 @@ Subsecuentemente, se redujeron las dimensiones usando:
 
 - tSNE: Cuya imagen se encuentra en Figures/tSNE_proy.pdf
 
+El siguiente paso a las proyecciones, fue construir un grafo de vecinos, donde cada spot se conecta con sus 15 vecinos más cercanos, escogiendo el método de sNN. Subsecuentemente, se tomó este grafo para realizar el clustering. Las métricas utilizadas se discutirán mas abajo. Las proyecciones con los clusters marcados se encuentran en:
+
+- PCA: La imagen se encuentra en Figures/PCA_clusters.pdf
+
+- UMAP: Se encuentra en la ruta Figures/UMAP_clusters.pdf
+
+- tSNE: La imagen se encuentra en Figures/tSNE_clusters.pdf
+
+Adicionalmente, podemos representar los clusters en su forma espacial. Este archivo lo podemos apreciar en Figures/Spatial_Clusters.pdf. De esta visualización, podemos resaltar el cluster 5 y 3, los cuales son consostente espacialmente y con las proyecciones. Estos archivos se ven en Figures/Cluster5.pdf y Figures/Cluster3.pdf.
+
 # Discusión
 
 
