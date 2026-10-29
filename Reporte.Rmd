@@ -406,6 +406,17 @@ Posterior a explorar los datos y comprobar que eran congruentes con la descripci
 
 Luego del filtrado de spots, se realizó el control de calidad. Para esto se diagnosticó el número de genes distintos detectados en ese spot y el número total de transcritos sumados en ese spot. La visualización de los spots con pocos genes de forma espacial se encuentra en Figures/SpotGeneVis.pdf, Mientras que los histogramas se encuentran en Figures/FeatureDiversity.pdf y Figures/FeaturePrevalence.pdf
 
+Posteirormente, se realizo la exploracion del filtrado con distintos umbrales:
+
+- Para el umbral de expresión, el cual mide el número de transcritos para consdierarse expresado se evalúa 1, 2 y 3
+
+- Para el filtro por gen, el cuál mide en cuánlos spots como minimo se conserva se prueban los valores 50, 100 y 200
+
+- Para el filtro por spot mide cuántos genes como mínimo debe detectar un spot para conservarlo se prueban 500, 1,000 y 1,500
+
+Al final se escogió la combinación 1, 50 y 1,000. Esto se discutirá mas tarde. La gráfica de las imulaciones se encuentra en Figures/SimThreshholds.pdf
+
+
 
 # Discusión
 
