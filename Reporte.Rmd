@@ -13,11 +13,26 @@ El dataset contiene 1,438 spots con una mediana de genes por spot de 6,516 y una
 
 Los datos son un poco antiguos ya que fueron publicados el 23 de julio del 2020 y se usó el producto de Spatial Gene Expression v1, es por ello que se utilizó el pipeline de vissium y no vissium HD.
 
+# Descarga de los datos: 
+
+Para descargar los datos, se realizó desde el cluster mediante los enlaces y la función `wget` con los comandos:
+
+```bash
+srun --pty bash
+cd /mnt/data/bioinfo3/$(whoami)
+mkdir -p spatial_RNA/visium_data
+cd spatial_RNA/visium_data
+
+wget https://cf.10xgenomics.com/samples/spatial-exp/1.1.0/V1_Mouse_Kidney/V1_Mouse_Kidney_spatial.tar.gz
+wget https://cf.10xgenomics.com/samples/spatial-exp/1.1.0/V1_Mouse_Kidney/V1_Mouse_Kidney_raw_feature_bc_matrix.tar.gz
+
+tar -xzf V1_Mouse_Kidney_spatial.tar.gz
+tar -xzf V1_Mouse_Kidney_raw_feature_bc_matrix.tar.gz
+```
 
 # Código y Resultados
 
-Este script asume que los datos ya fueron
-
+Este script asume que los datos ya fueron descargados. 
 ```{r message=FALSE, warning=FALSE}
 # Fijar semilla y establecer directorio de trabajo donde se encuetran nuestros archivos 
 set.seed(6)
