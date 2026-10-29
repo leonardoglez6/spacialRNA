@@ -1,0 +1,9 @@
+---
+title: "Reporte | Dataset de riñón de ratón"
+author: "Jair Emiliano Contreras Rivera, Leonardo Daniel González López y Alejandro Pinto Sánchez"
+date: "29/10/2026"
+output: html_notebook
+---
+
+
+
