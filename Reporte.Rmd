@@ -223,6 +223,12 @@ spatPlot2D(gobject = visium_kidney,
            point_alpha = 0.7,
            cell_color = "nr_feats", 
            color_as_factor = FALSE)
+
+spatPlot2D(gobject = visium_kidney, 
+           show_image = FALSE, 
+           point_alpha = 0.7,
+           cell_color = "total_expr", 
+           color_as_factor = FALSE)
 ```
 
 
