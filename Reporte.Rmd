@@ -404,6 +404,7 @@ spatPlot2D(visium_kidney,
 
 Posterior a explorar los datos y comprobar que eran congruentes con la descripción de los datos en 10x genomics, se realizó el mapa 2D de los spots usando las coordenada espaciales, esta visualización está disponible en el repositorio de github de la forma Figures/SpotPlotUnfiltered.pdf. Los puntos grises corrresponden a spots fuera del tejido mientras que los azules indican que están dentro. Se ignora la imagen histologica de fondo dado que se trabajó en cluster. Posterior a visualizar y corroborar se filtraron los spots fuera el tejido, pasando de 4,992 a 1,438 spots dentro del tejido. La imagen posterior a filtrar se encuentra en el repositorio de la forma Figures/SpotPlotFiltered.pdf.
 
+Luego del filtrado de spots, se realizó el control de calidad. Para esto se diagnosticó el número de genes distintos detectados en ese spot y el número total de transcritos sumados en ese spot. La visualización de los spots con pocos genes de forma espacial se encuentra en Figures/SpotGeneVis.pdf, Mientras que los histogramas se encuentran en Figures/FeatureDiversity.pdf y Figures/FeaturePrevalence.pdf
 
 
 # Discusión
