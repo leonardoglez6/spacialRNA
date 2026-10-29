@@ -444,6 +444,7 @@ El siguiente paso a las proyecciones, fue construir un grafo de vecinos, donde c
 
 Adicionalmente, podemos representar los clusters en su forma espacial. Este archivo lo podemos apreciar en Figures/Spatial_Clusters.pdf. De esta visualización, podemos resaltar el cluster 5 y 3, los cuales son consostente espacialmente y con las proyecciones. Estos archivos se ven en Figures/Cluster5.pdf y Figures/Cluster3.pdf.
 
+
 # Discusión
 
 ## Naturaleza del dataset
@@ -471,12 +472,18 @@ El clustering de Leiden (k = 15 vecinos, resolución 0.4) identificó 11 cluster
 
 Además, los huecos sin spots coinciden con espacios vacíos en la H&E, probablemente vasos sanguíneos de la unión entre la corteza y el tejido medular. UMAP y tSNE dieron topologías equivalentes, lo que respalda que esta estructura no depende del método de proyección.
 
-  ## Limitaciones
+## Limitaciones
 
  La identidad de las regiones se propuso a partir de la posición de los clusters y su correspondencia con la histología, sin genes marcadores. El siguiente paso sería identificar los genes diferenciales de cada cluster y comparar con marcadores conocidos del riñón.
 
+
 # Conclusiones
 
+- La muestra probablemente fue realizada de forma transversal, distinto a lo que se anotó en 10x
+
+- Los clusters parecen corresponder a tejidos diferentes dentro de la muestra.
+
+- El siguiente paso es identificar los genes diferenciales de cada cluster y compararlos con marcadores conocidos del riñón.
 
 
 # Referencias
